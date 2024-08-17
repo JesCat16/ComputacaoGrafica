@@ -78,6 +78,10 @@ def rotate_around_center_of_mass(obj, event):
         actor_cube.RotateZ(5)  # rotaciona no sentido anti-horário (R)
         actor_cube.AddPosition(-posn[0], -posn[1], -posn[2])  # leva para a origem (T’)
         renderWindow.Render()
+    if key == "f":
+        transform_cube.Scale(1.2,1.2,1.2)
+        transform_cube.Translate(1, 1, 1)
+        renderWindow.Render()
 
     # Associar a função de callback ao evento de tecla
 renderWindowInteractor.AddObserver("KeyPressEvent", rotate_around_center_of_mass)
