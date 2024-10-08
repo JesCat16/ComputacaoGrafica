@@ -1,2 +1,2 @@
 # ComputacaoGrafica
-Projeto do curso de VTK com Python
+Projeto do curso de OpenCV com Python, realizado na Faculdade.
