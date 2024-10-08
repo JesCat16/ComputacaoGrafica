@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 # Carregar a imagem
-imagem = cv2.imread('low-contrast01.png')
+imagem = cv2.imread('ruido01.png')
 # Converter a imagem para escala de cinza
 imagem_gray = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 #-----------------------------------------------------------
@@ -16,13 +16,14 @@ imagem_filtrada = cv2.filter2D(imagem_normalizada, -1, kernel)
 imagem_filtrada = np.uint8(imagem_filtrada * 255)
 imagem_filtrada = cv2.medianBlur(imagem_gray, 3)
 #-----------------------------------------------------------
-#Equaliza a Imagem
+#Equaliza a Imagem, de uma imagem mal distribuida para uma
+#bem distribuida
 imagem_equalizada = cv2.equalizeHist(imagem_gray)
 #-----------------------------------------------------------
 #Imagem binarizada ou segmentada
-#limiar_minimo = 127 # Valor do limiar
-#limiar_maximo = 255 # Valor máximo (cor branca)
-#imagem_binarizada = cv2.threshold(imagem_gray,limiar_minimo, limiar_maximo, cv2.THRESH_BINARY)
+limiar_minimo = 127 # Valor do limiar
+limiar_maximo = 255 # Valor máximo (cor branca)
+imagem_binarizada = cv2.threshold(imagem_gray,limiar_minimo, limiar_maximo, cv2.THRESH_BINARY)
 #-----------------------------------------------------------
 #Calculo do limiar de imagem
 bordas_laplacianas = cv2.Laplacian(imagem_gray, cv2.CV_64F)
@@ -42,6 +43,7 @@ sobe_combined = cv2.addWeighted(sobelx, 0.5, sobely, 0.5, 0)
 #-----------------------------------------------------------
 
 # Exibir a imagem em escala de cinza
+cv2.imshow('Original', imagem_gray)
 cv2.imshow('Imagem em Escala de Cinza', sobe_combined)
 #print(imagem_binarizada)
 cv2.waitKey(0)
