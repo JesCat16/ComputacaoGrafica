@@ -1,4 +1,4 @@
-import cv2
+# import cv2
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from sklearn.neural_network import MLPClassifier
@@ -11,11 +11,6 @@ import numpy as np
 digits = load_digits()
 X = digits.images # Imagens 8x8
 y = digits.target # Rótulos
-
-# Redimensiona as imagens para o formato (8, 8, 1) (necessário para a CNN)
-X = np.expand_dims(X, axis=-1)
-# Divide os dados em treino e teste
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 #crie a camada Flatten para transformar em vetor de características que seja aceito pela MLP
 def criar_cnn(input_shape):
