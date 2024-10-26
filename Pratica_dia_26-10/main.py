@@ -57,4 +57,14 @@ y_pred = mlp.predict(X_test_cnn_features)
 accuracy = accuracy_score(y_test, y_pred)
 
 # Exibe a acuracidade
-print(f"Acurácia com CNN e MLP: accuracy * 100:.2f%")
+print(f"Acurácia com CNN e MLP: {accuracy * 100:.2f}%")
+
+# Agora faça uns testes com imagens aleatórias
+# i = 50
+# img = np.uint8(X_test[i]*255)
+# cv2.namedWindow("imagem",2)
+# cv2.imshow("imagem",img)
+# print(f"Verdadeiro: y_test[i]")
+# print(f"Previsto: y_pred[i]")
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
