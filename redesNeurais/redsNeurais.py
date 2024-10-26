@@ -18,7 +18,7 @@ X_test = scaler.transform(X_test)
 
 mlp = MLPClassifier(hidden_layer_sizes=(3), max_iter=2000)
 
-mlp.fit(X_train, y_train)
-y_pred = mlp.predict(X_test)
+mlp.fit(X_train, y_train) #80% de treino
+y_pred = mlp.predict(X_test) #20% de teste
 accuracy = accuracy_score(y_test, y_pred)
 print(f'Acurácia: {accuracy * 100:.2f}%')
